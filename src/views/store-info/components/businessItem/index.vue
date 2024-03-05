@@ -27,6 +27,7 @@ const props = defineProps({
 </script>
 
 <style lang="scss" scoped>
+@import '@/assets/style/variable';
 .business {
   width: 380px;
   height: 350px;

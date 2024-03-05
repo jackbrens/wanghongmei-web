@@ -12,13 +12,13 @@ export default defineConfig({
       '@': resolve(__dirname, '.', 'src')
     },
     extensions: ['.vue', '.js', '.json']
-  },
-  // 全局注入css
-  css: {
-    preprocessorOptions: {
-      scss: {
-        additionalData: '@import "@/assets/style/variable.scss";'
-      }
-    }
   }
+  // 全局注入css
+  // css: {
+  //   preprocessorOptions: {
+  //     scss: {
+  //       additionalData: '@import "@/assets/style/variable.scss";'
+  //     }
+  //   }
+  // }
 })

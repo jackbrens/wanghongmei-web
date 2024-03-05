@@ -36,6 +36,7 @@ const handleOnMenu = (routerName) => {
 }
 </script>
 <style lang="scss" scoped>
+@import '@/assets/style/variable';
 .top-bar {
   .top-box {
     display: flex;

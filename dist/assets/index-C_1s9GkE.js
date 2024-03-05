@@ -1,0 +1,1 @@
+import{b as e}from"./index-vivxvE3z.js";import{f as a,g as r,u as s,m as t,j as o}from"./index-DdAwfECM.js";const c=t("div",{class:"wrapper"},"品牌文化",-1),u={__name:"index",setup(n){return(_,m)=>(o(),a("div",null,[r(s(e)),c]))}};export{u as default};

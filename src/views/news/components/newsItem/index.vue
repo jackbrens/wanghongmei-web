@@ -20,6 +20,7 @@ const props = defineProps({
 })
 </script>
 <style lang="scss" scoped>
+@import '@/assets/style/variable';
 .news-item {
   display: flex;
   padding: 30px 0 40px;

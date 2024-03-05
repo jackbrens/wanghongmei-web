@@ -82,6 +82,7 @@ const handleTab = (tab) => {
 }
 </script>
 <style lang="scss" scoped>
+@import '@/assets/style/variable';
 .size-30 {
   font-size: 30px;
 }
