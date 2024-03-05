@@ -1,0 +1,89 @@
+<template>
+  <footer class="footer">
+    <div class="container wrapper">
+      <div class="menu-box">
+        <p class="head-title">网站导航·MENU</p>
+        <div class="line"></div>
+        <ul>
+          <li
+            class="menu-item"
+            v-for="(li, i) in menuList"
+            :key="i"
+            @click="handleOnMenu(li.routerName)"
+          >
+            {{ li.label }}
+          </li>
+        </ul>
+      </div>
+      <div class="contact-box">
+        <p class="head-title">联系方式·CONTACT</p>
+        <div class="line"></div>
+        <div class="phone">
+          <span>联系电话：400-8876516</span>
+          <span>邮箱：13956156908@126.com</span>
+        </div>
+        <div class="address">地址：安徽省芜湖市黄山东路新华文沁苑1栋5单元4层</div>
+      </div>
+      <div class="contact-pic">
+        <img :src="requirePath('contact.jpg')" alt="" />
+      </div>
+    </div>
+  </footer>
+</template>
+<script setup>
+import { menuList, requirePath } from '@/utils/index.js'
+import { useRouter } from 'vue-router'
+const router = useRouter()
+const handleOnMenu = (routerName) => {
+  router.push({ name: routerName })
+}
+</script>
+<style lang="scss" scoped>
+.footer {
+  margin-top: 100px;
+  padding: 60px 0;
+  background-color: #59413d;
+  color: #999999;
+  .container {
+    display: flex;
+    justify-content: space-between;
+    .contact-box {
+      .phone {
+        margin-bottom: 20px;
+        span:nth-of-type(1) {
+          margin-right: 30px;
+        }
+      }
+    }
+    .contact-pic {
+      width: 200px;
+      height: 240px;
+      img {
+        width: 100%;
+        height: 100%;
+      }
+    }
+  }
+}
+
+.line {
+  background-color: #ffffff3d;
+  height: 1px;
+  width: 70%;
+  margin: 20px 0;
+}
+.head-title {
+  color: #fff;
+  font-weight: 500;
+  font-size: 24px;
+}
+.menu-item {
+  display: inline-block;
+  padding-right: 5%;
+  padding-bottom: 5%;
+  cursor: pointer;
+  &:hover {
+    color: #ffffff;
+  }
+}
+</style>
