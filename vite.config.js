@@ -7,6 +7,7 @@ import { resolve } from 'path'
 export default defineConfig({
   plugins: [vue(), vueJsx()],
   resolve: {
+    base: '/wanghongmei-web/',
     alias: {
       // eslint-disable-next-line no-undef
       '@': resolve(__dirname, '.', 'src')
