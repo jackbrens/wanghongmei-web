@@ -1,3 +1,17 @@
 
 $bg-color: #a12b3d;
 $second-color: #9B6526;
+
+
+
+$breakpoint-xs: 320px; // 小于等于320像素的设备
+$breakpoint-sm: 480px; // 大于321像素、小于等于480像素的设备
+$breakpoint-md: 768px; // 大于481像素、小于等于768像素的设备
+$breakpoint-lg: 992px; // 大于769像素、小于等于992像素的设备
+$breakpoint-xl: 1200px; // 大于993像素的设备
+
+@mixin media($width) {
+  @media (max-width: $width) {
+    @content;
+  }
+}
