@@ -1,5 +1,5 @@
 <template>
-  <header>
+  <div>
     <div class="top-bar">
       <div class="wrapper top-box">
         <div class="logo">
@@ -16,10 +16,14 @@
               {{ li.label }}
             </li>
           </ul>
-          <div class="menu-icon" @click="handleIcon"></div>
         </div>
       </div>
-      <!--移动端的导航-->
+    </div>
+    <!--移动端的导航-->
+    <div class="top-bar-mobile">
+      <img class="logo" :src="logoImg" alt="" />
+      <div class="menu-icon" @click="handleIcon"></div>
+      <!--移动端的导航下拉-->
       <div class="navbar-collapse" :class="{ active: isShowCollapse }">
         <ul class="nav-list">
           <li
@@ -33,7 +37,7 @@
         </ul>
       </div>
     </div>
-  </header>
+  </div>
 </template>
 <script setup>
 import { useRouter, useRoute } from 'vue-router'
@@ -101,6 +105,7 @@ const handleIcon = () => {
 
 .navbar-collapse {
   position: absolute;
+  top: 50px;
   width: 100%;
   background-color: #ffffff;
   transition: all 0.3s ease-in-out;
@@ -123,28 +128,33 @@ const handleIcon = () => {
     }
   }
 }
+
+.top-bar-mobile {
+  position: fixed;
+  z-index: 99;
+  width: 100vw;
+  height: 50px;
+  top: 0;
+  left: 0;
+  background-color: #f7f7f7;
+  display: none;
+  justify-content: space-between;
+  padding: 6px;
+  .logo {
+    width: 200px;
+  }
+  .menu-icon {
+    background: url('@/assets/menu.svg') no-repeat;
+    width: 40px;
+    height: 40px;
+  }
+}
 @include media($breakpoint-md) {
   .top-bar {
-    position: fixed;
-    z-index: 99;
-    width: 100%;
-    .top-box {
-      height: 60px;
-      .logo {
-        width: 200px;
-      }
-      .right-top {
-        align-items: center;
-        .uls {
-          display: none;
-        }
-        .menu-icon {
-          background: url('@/assets/menu.svg') no-repeat;
-          width: 40px;
-          height: 40px;
-        }
-      }
-    }
+    display: none;
+  }
+  .top-bar-mobile {
+    display: flex;
   }
 }
 </style>

@@ -62,12 +62,23 @@ const brandList = [
   }
   &:nth-of-type(2n-1) .wrapper {
     flex-direction: row-reverse;
+    @include media($breakpoint-md) {
+      flex-direction: column;
+      align-items: center;
+    }
     .right-box {
       margin: 0 50px 0 0;
+      @include media($breakpoint-md) {
+        margin: 30px 30px;
+      }
     }
   }
   .wrapper {
     display: flex;
+    @include media($breakpoint-md) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .img {
     width: 400px;
@@ -78,6 +89,10 @@ const brandList = [
     display: flex;
     justify-content: center;
     align-items: center;
+    @include media($breakpoint-md) {
+      max-width: 200px;
+      max-height: 200px;
+    }
     &::before,
     &::after {
       content: '';
@@ -86,6 +101,10 @@ const brandList = [
       height: 120px;
       border-radius: 50%;
       background-color: #a12b3d99;
+      @include media($breakpoint-md) {
+        max-width: 60px;
+        max-height: 60px;
+      }
     }
     &::before {
       left: 0;
@@ -110,6 +129,9 @@ const brandList = [
     display: flex;
     flex-direction: column;
     justify-content: center;
+    @include media($breakpoint-md) {
+      margin: 30px 30px 0;
+    }
     .line {
       height: 4px;
       width: 120px;

@@ -72,17 +72,27 @@ const aboutNumList = [
 ]
 </script>
 <style lang="scss" scoped>
+@import '@/assets/style/variable';
 .gary {
   background-color: #f7f7f7;
   display: flex;
   padding: 100px 0 200px;
   .wrapper {
     display: flex;
+    @include media($breakpoint-md) {
+      flex-direction: column;
+      align-items: center;
+    }
   }
   .image {
     width: 550px;
     height: 365px;
     margin-right: 50px;
+    @include media($breakpoint-md) {
+      max-width: 300px;
+      height: 210px;
+      margin-right: 0;
+    }
   }
   .right-box {
     flex: 1;
@@ -92,10 +102,16 @@ const aboutNumList = [
       margin-bottom: 30px;
       font-size: 26px;
       color: #333333;
+      @include media($breakpoint-md) {
+        text-align: center;
+      }
     }
     .desc {
       color: #999999;
       line-height: 26px;
+      @include media($breakpoint-md) {
+        padding: 0 30px;
+      }
     }
   }
 }
@@ -118,6 +134,9 @@ const aboutNumList = [
         background-image: url('@/assets/about/abg-1.png');
         background-repeat: no-repeat;
         background-size: 100% 100%;
+        @include media($breakpoint-md) {
+          background-image: none;
+        }
         & > li {
           flex: 1;
           display: flex;
@@ -153,12 +172,22 @@ const aboutNumList = [
         line-height: 26px;
         margin: 0 60px 30px;
         text-align: center;
+        @include media($breakpoint-md) {
+          line-height: 36px;
+          font-size: 14px;
+        }
       }
       .list {
         display: flex;
+        @include media($breakpoint-md) {
+          flex-wrap: wrap;
+        }
         .list-item {
           margin-right: 30px;
           width: 380px;
+          @include media($breakpoint-md) {
+            margin: 0 30px 30px;
+          }
           .pic {
             width: 100%;
             height: 254px;

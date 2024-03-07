@@ -34,8 +34,16 @@ const props = defineProps({
   box-shadow: 0 0 5px #c5c5c5;
   margin: 0 30px 30px 0;
   cursor: pointer;
+  @include media($breakpoint-md) {
+    width: 100%;
+    height: 100%;
+    margin: 0 30px 30px;
+  }
   &:nth-of-type(3n) {
     margin-right: 0;
+    @include media($breakpoint-md) {
+      margin-right: 30px;
+    }
   }
   &:hover .img-box .image {
     transform: scale(1.2);
@@ -65,6 +73,9 @@ const props = defineProps({
         display: flex;
         justify-content: space-between;
         padding-bottom: 5px;
+        @include media($breakpoint-md) {
+          flex-direction: column;
+        }
         .title {
           color: #333;
         }

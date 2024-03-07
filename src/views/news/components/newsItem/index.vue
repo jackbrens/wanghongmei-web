@@ -6,7 +6,9 @@
     <div class="news-content">
       <div class="news-title">{{ itemObj?.title }}</div>
       <div class="news-desc">{{ itemObj?.desc }}</div>
-      <div class="btn-box">了解更多</div>
+      <div class="btn-box">
+        <div class="btn">了解更多</div>
+      </div>
     </div>
   </div>
 </template>
@@ -25,6 +27,10 @@ const props = defineProps({
   display: flex;
   padding: 30px 0 40px;
   position: relative;
+  @include media($breakpoint-md) {
+    flex-direction: column;
+    align-items: center;
+  }
   &::after {
     content: '';
     position: absolute;
@@ -39,10 +45,11 @@ const props = defineProps({
     width: 100%;
     background-color: $bg-color;
   }
+
   &:hover .news-content .news-title {
     color: $bg-color;
   }
-  &:hover .news-content .btn-box {
+  &:hover .news-content .btn {
     background-color: $bg-color;
     color: #ffffff;
   }
@@ -61,23 +68,36 @@ const props = defineProps({
       font-size: 22px;
       color: #000000;
       margin-bottom: 20px;
+      @include media($breakpoint-md) {
+        text-align: center;
+      }
     }
     .news-desc {
       font-size: 12px;
       color: #999999;
+      @include media($breakpoint-md) {
+        margin: 0 30px;
+        line-height: 26px;
+      }
     }
     .btn-box {
-      border: 1px solid #ebebeb;
-      width: 120px;
-      height: 34px;
-      display: flex;
-      justify-content: center;
-      align-items: center;
-      color: #999999;
-      cursor: pointer;
-      margin-top: 26px;
-      font-size: 14px;
-      transition: all 0.66s cubic-bezier(0.17, 0.84, 0.44, 1);
+      @include media($breakpoint-md) {
+        display: flex;
+        justify-content: center;
+      }
+      .btn {
+        border: 1px solid #ebebeb;
+        width: 120px;
+        height: 34px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: #999999;
+        cursor: pointer;
+        margin-top: 26px;
+        font-size: 14px;
+        transition: all 0.66s cubic-bezier(0.17, 0.84, 0.44, 1);
+      }
     }
   }
 }

@@ -26,10 +26,12 @@
               创办的“芜湖市盲人按摩诊所”，是芜湖最早一批中医推拿机构。自1999年陶宜珍所长
               去世后，传其爱徒王红梅医师接管并更名为“王红梅祖传按摩中心” ...
             </p>
-            <div class="btn">查看更多></div>
+            <div class="btn-box">
+              <div class="btn" @click="() => router.push({ name: 'about' })">查看更多></div>
+            </div>
           </div>
           <div class="about-right">
-            <img style="width: 500px; height: 500px" :src="requirePath('katong.png')" alt="" />
+            <img :src="requirePath('katong.png')" alt="" />
           </div>
         </div>
       </div>
@@ -72,7 +74,9 @@
           </li>
         </ul>
         <div class="btn-box">
-          <span class="btn">查看更多></span>
+          <span class="btn" @click="() => router.push({ name: 'businessSegments' })">
+            查看更多>
+          </span>
         </div>
       </div>
       <div class="storeInfo max-1700">
@@ -94,7 +98,7 @@
           </li>
         </ul>
         <div class="btn-box">
-          <span class="btn">查看更多></span>
+          <span class="btn" @click="() => router.push({ name: 'storeInfo' })">查看更多></span>
         </div>
       </div>
     </div>
@@ -107,6 +111,8 @@ import 'swiper/swiper.scss'
 import SwiperCore, { EffectCoverflow, Navigation, Pagination, A11y, Autoplay } from 'swiper/core'
 import { reactive } from 'vue'
 import { requirePath } from '@/utils/index.js'
+import { useRouter } from 'vue-router'
+const router = useRouter()
 
 // 注册使用
 SwiperCore.use([EffectCoverflow, Navigation, Pagination, A11y, Autoplay])
@@ -162,29 +168,57 @@ const swiperOption = reactive({
       margin-top: 50px;
       display: flex;
       justify-content: space-between;
+      @include media($breakpoint-md) {
+        flex-direction: column-reverse;
+      }
       .about-left {
         font-size: 14px;
         color: #999999;
         margin-right: 50px;
         padding-top: 60px;
+        @include media($breakpoint-md) {
+          margin-right: 0;
+        }
         p:nth-of-type(1) {
           font-size: 24px;
           color: #333333;
           padding-bottom: 30px;
+          @include media($breakpoint-md) {
+            text-align: center;
+          }
         }
         p:nth-of-type(2) {
           line-height: 26px;
+          @include media($breakpoint-md) {
+            padding: 0 30px;
+          }
         }
-        .btn {
-          background-color: $bg-color;
-          color: #ffffff;
-          display: inline-block;
-          padding: 10px 30px;
-          margin-top: 30px;
-          cursor: pointer;
+        .btn-box {
+          @include media($breakpoint-md) {
+            text-align: center;
+          }
+          .btn {
+            background-color: $bg-color;
+            color: #ffffff;
+            display: inline-block;
+            padding: 10px 30px;
+            margin-top: 30px;
+            cursor: pointer;
+          }
         }
       }
       .about-right {
+        @include media($breakpoint-md) {
+          text-align: center;
+        }
+        img {
+          width: 500px;
+          height: 500px;
+          @include media($breakpoint-md) {
+            max-height: 250px;
+            max-width: 250px;
+          }
+        }
       }
     }
   }
@@ -213,6 +247,11 @@ const swiperOption = reactive({
           transition: all 0.35s ease-in-out;
           background: url('@/assets/home/circle-red.png') no-repeat;
           background-size: 100% 100%;
+          @include media($breakpoint-md) {
+            max-width: 80px;
+            max-height: 80px;
+            font-size: 20px;
+          }
           &:hover {
             transform: scale(1.1);
           }
@@ -222,6 +261,11 @@ const swiperOption = reactive({
           height: 1px;
           background-color: #9b6526;
           margin: 0 60px;
+          @include media($breakpoint-md) {
+            width: 60px;
+            margin: 0;
+            transform: rotate(90deg);
+          }
         }
         .tit {
           color: $bg-color;
@@ -241,6 +285,9 @@ const swiperOption = reactive({
     padding: 50px 0;
     .business-list {
       display: flex;
+      @include media($breakpoint-md) {
+        flex-wrap: wrap;
+      }
       & > li {
         box-sizing: border-box;
         background: url('@/assets/home/index_service_bg.png') no-repeat;
@@ -251,6 +298,12 @@ const swiperOption = reactive({
         align-items: center;
         justify-content: space-between;
         padding: 60px 60px 55px;
+        @include media($breakpoint-md) {
+          padding: 60px 80px 55px;
+          &:nth-of-type(n + 3) {
+            display: none;
+          }
+        }
         &:last-of-type {
           margin-right: 0;
         }
@@ -288,12 +341,22 @@ const swiperOption = reactive({
     .store-list {
       display: flex;
       padding: 50px 0;
+      @include media($breakpoint-md) {
+        flex-wrap: wrap;
+      }
       & > li {
         margin-right: 100px;
         box-shadow: 5px 5px 10px 0 rgba(0, 0, 0, 0.1);
         transition: all 0.3s ease-in-out;
+
         &:last-of-type {
           margin-right: 0;
+        }
+        @include media($breakpoint-md) {
+          margin: 0 30px 30px;
+          &:last-of-type {
+            margin-right: 30px;
+          }
         }
         &:hover {
           transform: scale(1.1);
@@ -320,6 +383,12 @@ const swiperOption = reactive({
         cursor: pointer;
       }
     }
+  }
+}
+
+@include media($breakpoint-md) {
+  .swiper-item {
+    max-height: 200px;
   }
 }
 </style>

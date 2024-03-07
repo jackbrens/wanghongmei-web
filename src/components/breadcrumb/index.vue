@@ -25,10 +25,14 @@ const handleRoutePath = () => {
 </script>
 
 <style scoped lang="scss">
+@import '@/assets/style/variable';
 .breadcrumb {
   height: 60px;
   border-top: 1px solid #eee;
   border-bottom: 1px solid #eee;
+  @include media($breakpoint-md) {
+    margin-top: 50px;
+  }
   .wrapper {
     display: flex;
     align-items: center;

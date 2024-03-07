@@ -97,12 +97,18 @@ const handleTab = (tab) => {
   padding: 20px;
   box-shadow: 0 0 45px 0 rgba(228, 226, 238, 0.8);
   display: flex;
+  @include media($breakpoint-md) {
+    flex-direction: column;
+  }
   .tab-item {
     border: 1px solid rgb(206, 212, 218);
     border-radius: 4px;
     padding: 16px 30px;
     margin-right: 50px;
     cursor: pointer;
+    @include media($breakpoint-md) {
+      margin-top: 30px;
+    }
     &:hover {
       background-color: $bg-color;
       color: #ffffff;
@@ -125,8 +131,16 @@ const handleTab = (tab) => {
     border-radius: 4px;
     position: relative;
     overflow: hidden;
+    @include media($breakpoint-md) {
+      width: 100%;
+      margin: 0 30px 30px;
+      max-height: 300px;
+    }
     &:nth-of-type(3n) {
       margin-right: 0;
+      @include media($breakpoint-md) {
+        margin-right: 30px;
+      }
     }
     &::after {
       content: '';
