@@ -39,6 +39,7 @@ const handleOnMenu = (routerName) => {
 }
 </script>
 <style lang="scss" scoped>
+@import '@/assets/style/variable';
 .footer {
   margin-top: 100px;
   padding: 60px 0;
@@ -47,9 +48,30 @@ const handleOnMenu = (routerName) => {
   .container {
     display: flex;
     justify-content: space-between;
+    @include media($breakpoint-md) {
+      flex-direction: column-reverse;
+      align-items: center;
+    }
+    .menu-box {
+      @include media($breakpoint-md) {
+        display: none;
+      }
+    }
     .contact-box {
+      @include media($breakpoint-md) {
+        margin-top: 30px;
+        padding: 0 30px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
       .phone {
         margin-bottom: 20px;
+        @include media($breakpoint-md) {
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+        }
         span:nth-of-type(1) {
           margin-right: 30px;
         }
