@@ -5,9 +5,9 @@ import { resolve } from 'path'
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  base: '/wanghongmei-web/',
   plugins: [vue(), vueJsx()],
   resolve: {
-    base: '/wanghongmei-web/',
     alias: {
       // eslint-disable-next-line no-undef
       '@': resolve(__dirname, '.', 'src')
