@@ -2,12 +2,12 @@
   <div>
     <breadcrumb />
     <div class="wrapper">
-      <div class="title-box">
+      <div class="title-box animate__fadeInUp onMounted-wow">
         <p>联系我们</p>
         <p>Contact us</p>
         <div class="line"></div>
       </div>
-      <div class="list">
+      <div class="list animate__fadeInLeft onMounted-wow">
         <div class="list-item" v-for="(item, index) in contactList" :key="index">
           <div class="left-box">
             <div class="left-line"></div>
@@ -27,6 +27,25 @@
 <script setup>
 import breadcrumb from '@/components/breadcrumb'
 import { requirePath } from '@/utils/index.js'
+import WOW from 'wow.js'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const wowInt = new WOW({
+    // 对所有拥有该class的元素挂载动画
+    boxClass: 'onMounted-wow',
+    // 需要挂载的动画元素
+    animateClass: 'animate__animated',
+    // 偏移值（即偏移一定距离后再执行动画，推荐设置！）
+    offset: 100,
+    // 移动设备是否生效
+    mobile: true,
+    // 是否支持异步
+    live: true
+  })
+  wowInt.init()
+})
+
 const contactList = [
   {
     imgPath: 'phone.png',

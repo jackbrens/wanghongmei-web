@@ -11,11 +11,11 @@
     </div>
     <div class="main-container">
       <div class="about max-1700">
-        <div class="warp-title">
+        <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>公 · 司 · 介 · 绍</span>
           <div class="line"></div>
         </div>
-        <div class="about-content wrapper">
+        <div class="about-content wrapper animate__fadeInUp onMounted-wow">
           <div class="about-left">
             <p>王红梅祖传按摩</p>
             <p>
@@ -34,11 +34,11 @@
         </div>
       </div>
       <div class="culture max-1700">
-        <div class="warp-title">
+        <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>品 · 牌 · 文 · 化</span>
           <div class="line"></div>
         </div>
-        <ul class="culture-list wrapper">
+        <ul class="culture-list wrapper animate__fadeInUp onMounted-wow">
           <li v-for="(item, index) in cultureList" :key="index">
             <div class="circle">{{ item.title }}</div>
             <div class="cul-border"></div>
@@ -51,11 +51,11 @@
         </ul>
       </div>
       <div class="business max-1700">
-        <div class="warp-title">
+        <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>业 · 务 · 模 · 块</span>
           <div class="line"></div>
         </div>
-        <ul class="business-list wrapper">
+        <ul class="business-list wrapper animate__fadeInUp onMounted-wow">
           <li v-for="item in 4" :key="item">
             <div class="tit">
               <p>艾灸类</p>
@@ -78,11 +78,11 @@
         </div>
       </div>
       <div class="storeInfo max-1700">
-        <div class="warp-title">
+        <div class="warp-title animate__fadeInUp onMounted-wow">
           <span>门 · 店 · 信 · 息</span>
           <div class="line"></div>
         </div>
-        <ul class="store-list wrapper">
+        <ul class="store-list wrapper animate__fadeInUp onMounted-wow">
           <li v-for="item in 3" :key="item">
             <img
               style="width: 100%; height: 242px"
@@ -113,6 +113,24 @@ import { Navigation, Pagination } from 'swiper/modules'
 import { requirePath } from '@/utils/index.js'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
+import WOW from 'wow.js'
+import { onMounted } from 'vue'
+
+onMounted(() => {
+  const wowInt = new WOW({
+    // 对所有拥有该class的元素挂载动画
+    boxClass: 'onMounted-wow',
+    // 需要挂载的动画元素
+    animateClass: 'animate__animated',
+    // 偏移值（即偏移一定距离后再执行动画，推荐设置！）
+    offset: 100,
+    // 移动设备是否生效
+    mobile: true,
+    // 是否支持异步
+    live: true
+  })
+  wowInt.init()
+})
 const router = useRouter()
 
 const pagination = ref({

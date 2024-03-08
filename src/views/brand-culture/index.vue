@@ -1,7 +1,12 @@
 <template>
   <div>
     <breadcrumb />
-    <div class="brand-item" v-for="(item, index) in brandList" :key="index">
+    <div
+      class="brand-item animate__fadeInUp onMounted-wow"
+      :data-wow-delay="`${index * 0.3}s`"
+      v-for="(item, index) in brandList"
+      :key="index"
+    >
       <div class="wrapper">
         <div class="img">
           <img :src="requirePath(item.imgPath)" alt="" />
@@ -20,6 +25,23 @@
 <script setup>
 import breadcrumb from '@/components/breadcrumb'
 import { requirePath } from '@/utils/index.js'
+import { onMounted } from 'vue'
+import WOW from 'wow.js'
+onMounted(() => {
+  const wowInt = new WOW({
+    // 对所有拥有该class的元素挂载动画
+    boxClass: 'onMounted-wow',
+    // 需要挂载的动画元素
+    animateClass: 'animate__animated',
+    // 偏移值（即偏移一定距离后再执行动画，推荐设置！）
+    offset: 100,
+    // 移动设备是否生效
+    mobile: true,
+    // 是否支持异步
+    live: true
+  })
+  wowInt.init()
+})
 
 const brandList = [
   {

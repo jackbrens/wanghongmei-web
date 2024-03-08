@@ -2,7 +2,7 @@
   <div>
     <breadcrumb />
     <div class="gary">
-      <div class="wrapper">
+      <div class="wrapper animate__fadeInUp onMounted-wow">
         <img class="image" :src="requirePath('business/address.jpg')" alt="" />
         <div class="right-box">
           <div class="title">王红梅按摩服务有限公司</div>
@@ -15,7 +15,7 @@
     </div>
     <div class="about-bottom">
       <div class="wrapper">
-        <div class="aboutNum">
+        <div class="aboutNum animate__fadeInUp onMounted-wow">
           <ul class="content">
             <li v-for="(num, index) in aboutNumList" :key="index">
               <div class="number">
@@ -36,7 +36,7 @@
             已从当年的单人个体户发展至拥有多家连锁门店、几十位精英技师团队的连锁企业。
             而千千万万的江城人民也在“王红梅祖传按摩中心”得到了病痛的缓解和治疗，感受到中医文化的博大精深。
           </p>
-          <ul class="list">
+          <ul class="list animate__fadeInUp onMounted-wow">
             <li class="list-item" v-for="(item, i) in imgList" :key="i">
               <img class="pic" :src="requirePath(item)" alt="" />
               <!--              <div class="pic-text">-->
@@ -53,6 +53,23 @@
 <script setup>
 import breadcrumb from '@/components/breadcrumb'
 import { requirePath } from '@/utils/index.js'
+import { onMounted } from 'vue'
+import WOW from 'wow.js'
+onMounted(() => {
+  const wowInt = new WOW({
+    // 对所有拥有该class的元素挂载动画
+    boxClass: 'onMounted-wow',
+    // 需要挂载的动画元素
+    animateClass: 'animate__animated',
+    // 偏移值（即偏移一定距离后再执行动画，推荐设置！）
+    offset: 100,
+    // 移动设备是否生效
+    mobile: true,
+    // 是否支持异步
+    live: true
+  })
+  wowInt.init()
+})
 
 const imgList = [
   'qualifications/photo1.jpg',
