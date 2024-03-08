@@ -53,6 +53,14 @@ const router = createRouter({
         title: '品牌文化'
       },
       component: () => import('@/views/brand-culture/index.vue')
+    },
+    {
+      path: '/contact',
+      name: 'contact',
+      meta: {
+        title: '联系我们'
+      },
+      component: () => import('@/views/contact/index.vue')
     }
   ]
 })

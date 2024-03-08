@@ -30,5 +30,9 @@ export const menuList = [
   {
     label: '门店信息',
     routerName: 'storeInfo'
+  },
+  {
+    label: '联系我们',
+    routerName: 'contact'
   }
 ]

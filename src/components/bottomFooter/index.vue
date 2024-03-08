@@ -25,15 +25,46 @@
         <div class="address">地址：安徽省芜湖市黄山东路新华文沁苑1栋5单元4层</div>
       </div>
       <div class="contact-pic">
-        <img :src="requirePath('contact.jpg')" alt="" />
+        <img :src="requirePath('contact.png')" alt="" />
       </div>
     </div>
   </footer>
 </template>
 <script setup>
-import { menuList, requirePath } from '@/utils/index.js'
+import { requirePath } from '@/utils/index.js'
 import { useRouter } from 'vue-router'
 const router = useRouter()
+
+const menuList = [
+  {
+    label: '网站首页',
+    routerName: 'home'
+  },
+  {
+    label: '公司介绍',
+    routerName: 'about'
+  },
+  {
+    label: '品牌文化',
+    routerName: 'brandCulture'
+  },
+  {
+    label: '新闻中心',
+    routerName: 'news'
+  },
+  {
+    label: '业务模块',
+    routerName: 'businessSegments'
+  },
+  {
+    label: '门店信息',
+    routerName: 'storeInfo'
+  },
+  {
+    label: '联系我们',
+    routerName: 'contact'
+  }
+]
 const handleOnMenu = (routerName) => {
   router.push({ name: routerName })
 }
@@ -79,7 +110,7 @@ const handleOnMenu = (routerName) => {
     }
     .contact-pic {
       width: 200px;
-      height: 240px;
+      height: 200px;
       img {
         width: 100%;
         height: 100%;

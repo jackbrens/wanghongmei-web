@@ -4,7 +4,7 @@
       <img class="icon" :src="requirePath('weixin.png')" alt="" />
       <p>二维码</p>
       <div class="position-box">
-        <img :src="requirePath('contact.jpg')" alt="" />
+        <img :src="requirePath('contact.png')" alt="" />
       </div>
     </div>
     <div class="fixed-nav-item">
@@ -15,7 +15,7 @@
   </div>
 </template>
 <script setup>
-import { requirePath } from '../../utils/index.js'
+import { requirePath } from '@/utils/index.js'
 const list = [
   {
     label: '二维码',
@@ -66,7 +66,7 @@ const list = [
       display: none;
       & > img {
         width: 200px;
-        height: 240px;
+        height: 200px;
       }
     }
     .contact {
