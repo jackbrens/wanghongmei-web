@@ -26,13 +26,13 @@
               <p class="size-30">{{ item.title }}</p>
               <p class="size-14">{{ item.subtitle }}</p>
             </div>
-            <div class="item-price">
-              <p class="size-30" v-if="item.unit">
-                <span>{{ item.unit }}</span>
-                <span style="font-size: 18px; margin-left: 8px">分钟</span>
-              </p>
-              <p>价格：{{ item.price }} 元</p>
-            </div>
+            <!--            <div class="item-price">-->
+            <!--              <p class="size-30" v-if="item.unit">-->
+            <!--                <span>{{ item.unit }}</span>-->
+            <!--                <span style="font-size: 18px; margin-left: 8px">分钟</span>-->
+            <!--              </p>-->
+            <!--              <p>价格：{{ item.price }} 元</p>-->
+            <!--            </div>-->
           </div>
         </div>
       </div>
@@ -99,6 +99,7 @@ const handleTab = (tab) => {
   display: flex;
   @include media($breakpoint-md) {
     flex-direction: column;
+    margin: 30px;
   }
   .tab-item {
     border: 1px solid rgb(206, 212, 218);

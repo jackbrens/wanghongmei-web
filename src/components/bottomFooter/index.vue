@@ -53,7 +53,7 @@ const menuList = [
     routerName: 'news'
   },
   {
-    label: '业务模块',
+    label: '经典项目',
     routerName: 'businessSegments'
   },
   {
@@ -73,9 +73,12 @@ const handleOnMenu = (routerName) => {
 @import '@/assets/style/variable';
 .footer {
   margin-top: 100px;
-  padding: 60px 0;
+  padding: 40px 0;
   background-color: #59413d;
   color: #999999;
+  @include media($breakpoint-md) {
+    margin-top: 50px;
+  }
   .container {
     display: flex;
     justify-content: space-between;
@@ -102,15 +105,26 @@ const handleOnMenu = (routerName) => {
           display: flex;
           flex-direction: column;
           align-items: center;
+          font-size: 14px;
         }
         span:nth-of-type(1) {
           margin-right: 30px;
+        }
+      }
+      .address {
+        @include media($breakpoint-md) {
+          font-size: 14px;
+          text-align: center;
         }
       }
     }
     .contact-pic {
       width: 200px;
       height: 200px;
+      @include media($breakpoint-md) {
+        width: 150px;
+        height: 150px;
+      }
       img {
         width: 100%;
         height: 100%;
@@ -129,6 +143,9 @@ const handleOnMenu = (routerName) => {
   color: #fff;
   font-weight: 500;
   font-size: 24px;
+  @include media($breakpoint-md) {
+    font-size: 16px;
+  }
 }
 .menu-item {
   display: inline-block;

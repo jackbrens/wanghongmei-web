@@ -71,7 +71,7 @@ const handleIcon = () => {
     height: 80px;
     .logo {
       padding: 10px 0;
-      width: 400px;
+      width: 250px;
       & > img {
         width: 100%;
         height: 100%;
@@ -141,7 +141,7 @@ const handleIcon = () => {
   justify-content: space-between;
   padding: 6px;
   .logo {
-    width: 200px;
+    width: 150px;
   }
   .menu-icon {
     background: url('@/assets/menu.svg') no-repeat;

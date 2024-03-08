@@ -34,7 +34,7 @@ const router = createRouter({
       path: '/businessSegments',
       name: 'businessSegments',
       meta: {
-        title: '业务模块'
+        title: '经典项目'
       },
       component: () => import('@/views/business-segments/index.vue')
     },

@@ -1,13 +1,9 @@
 <template>
   <div>
-    <swiper :initial-slide="1" :pagination="{ clickable: true }" :centered-slides="true">
-      <swiper-slide v-for="item in ['swiper/swiper-1.jpg', 'swiper/swiper-2.jpg']" :key="item">
+    <swiper :initial-slide="0" :pagination="{ clickable: true }" :centered-slides="true">
+      <swiper-slide v-for="(item, i) in swiperList" :key="i">
         <div class="swiper-item">
-          <img
-            :src="requirePath(item)"
-            alt=""
-            style="width: 100%; height: 100%; object-fit: cover"
-          />
+          <img :src="requirePath(item)" alt="" />
         </div>
       </swiper-slide>
     </swiper>
@@ -41,12 +37,12 @@
           <div class="line"></div>
         </div>
         <ul class="culture-list wrapper">
-          <li v-for="item in 3" :key="item">
-            <div class="circle">王红梅</div>
+          <li v-for="(item, index) in cultureList" :key="index">
+            <div class="circle">{{ item.title }}</div>
             <div class="cul-border"></div>
             <div class="tit">
-              <p>医疗护理</p>
-              <p>祛风除湿、强身健体</p>
+              <p>{{ item.subtitle }}</p>
+              <p>{{ item.desc }}</p>
             </div>
             <div class="cul-border"></div>
           </li>
@@ -124,6 +120,26 @@ const swiperOption = reactive({
     prevEl: '.swiper-button-prev'
   }
 })
+
+const swiperList = ['swiper/banner1.jpg', 'swiper/banner2.jpg', 'swiper/banner3.jpg']
+
+const cultureList = [
+  {
+    title: '喜贯',
+    subtitle: '三代传承',
+    desc: '弘扬中华文化为己任'
+  },
+  {
+    title: '王红梅',
+    subtitle: '品牌老店',
+    desc: '厚重的中医文化底蕴'
+  },
+  {
+    title: '茹德堂',
+    subtitle: '三代传承',
+    desc: '不忘初心，牢记使命'
+  }
+]
 </script>
 <style lang="scss" scoped>
 @import '@/assets/style/variable';
@@ -137,8 +153,17 @@ const swiperOption = reactive({
 }
 
 .swiper-item {
-  height: 600px;
+  height: 650px;
+  @include media($breakpoint-md) {
+    max-height: 350px;
+  }
+  & > img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
 }
+
 .max-1700 {
   max-width: 1700px;
   margin: 50px auto;
@@ -164,6 +189,10 @@ const swiperOption = reactive({
     background-position: center bottom;
     background-size: 100%;
     padding: 50px 0;
+    @include media($breakpoint-md) {
+      padding-top: 0;
+      margin-top: 30px;
+    }
     .about-content {
       margin-top: 50px;
       display: flex;
@@ -343,6 +372,7 @@ const swiperOption = reactive({
       padding: 50px 0;
       @include media($breakpoint-md) {
         flex-wrap: wrap;
+        padding-bottom: 0;
       }
       & > li {
         margin-right: 100px;
@@ -383,12 +413,6 @@ const swiperOption = reactive({
         cursor: pointer;
       }
     }
-  }
-}
-
-@include media($breakpoint-md) {
-  .swiper-item {
-    max-height: 200px;
   }
 }
 </style>

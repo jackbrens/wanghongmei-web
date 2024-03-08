@@ -24,7 +24,7 @@ export const menuList = [
     routerName: 'news'
   },
   {
-    label: '业务模块',
+    label: '经典项目',
     routerName: 'businessSegments'
   },
   {
