@@ -1,12 +1,14 @@
 <template>
   <div>
-    <swiper :initial-slide="0" :pagination="{ clickable: true }" :centered-slides="true">
-      <swiper-slide v-for="(item, i) in swiperList" :key="i">
-        <div class="swiper-item">
-          <img :src="requirePath(item)" alt="" />
-        </div>
-      </swiper-slide>
-    </swiper>
+    <div class="custom-swiper-box">
+      <swiper :initial-slide="0" :navigation="true" :pagination="pagination" :modules="modules">
+        <swiper-slide v-for="(item, i) in swiperList" :key="i">
+          <div class="swiper-item">
+            <img :src="requirePath(item)" alt="" />
+          </div>
+        </swiper-slide>
+      </swiper>
+    </div>
     <div class="main-container">
       <div class="about max-1700">
         <div class="warp-title">
@@ -102,24 +104,26 @@
 </template>
 <script setup>
 import { Swiper, SwiperSlide } from 'swiper/vue'
-import 'swiper/swiper.scss'
-// 导入 模块 关于各个模块解释在最下面
-import SwiperCore, { EffectCoverflow, Navigation, Pagination, A11y, Autoplay } from 'swiper/core'
-import { reactive } from 'vue'
+// Import Swiper styles
+import 'swiper/css'
+import 'swiper/css/navigation'
+import 'swiper/css/pagination'
+// import required modules
+import { Navigation, Pagination } from 'swiper/modules'
 import { requirePath } from '@/utils/index.js'
 import { useRouter } from 'vue-router'
+import { ref } from 'vue'
 const router = useRouter()
 
-// 注册使用
-SwiperCore.use([EffectCoverflow, Navigation, Pagination, A11y, Autoplay])
-
-// 定义轮播图分页
-const swiperOption = reactive({
-  navigation: {
-    nextEl: '.swiper-button-next',
-    prevEl: '.swiper-button-prev'
+const pagination = ref({
+  clickable: true,
+  renderBullet: function (index, className) {
+    // 自定义样式
+    return '<span class="' + className + '">' + (index + 1) + '</span>'
   }
 })
+
+const modules = ref([Navigation, Pagination])
 
 const swiperList = ['swiper/banner1.jpg', 'swiper/banner2.jpg', 'swiper/banner3.jpg']
 
@@ -150,6 +154,37 @@ const cultureList = [
   -webkit-line-clamp: $num;
   overflow: hidden;
   text-overflow: ellipsis;
+}
+
+:deep(.custom-swiper-box) {
+  .swiper-button-prev,
+  .swiper-button-next {
+    color: #ffffff;
+    background-color: #a12b3d;
+    padding: 30px;
+    @include media($breakpoint-md) {
+      //display: none;
+      padding: 0;
+    }
+  }
+  .swiper-button-prev::after,
+  .swiper-button-next::after {
+    font-size: 16px;
+  }
+  .swiper-pagination-bullet {
+    width: 20px;
+    height: 20px;
+    text-align: center;
+    line-height: 20px;
+    font-size: 12px;
+    color: #666666;
+    opacity: 1;
+    background: rgba(0, 0, 0, 0.2);
+  }
+  .swiper-pagination-bullet-active {
+    color: #fff;
+    background: #a12b3d;
+  }
 }
 
 .swiper-item {
