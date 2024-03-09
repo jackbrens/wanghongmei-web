@@ -143,7 +143,7 @@ const pagination = ref({
 
 const modules = ref([Navigation, Pagination])
 
-const swiperList = ['swiper/banner1.jpg', 'swiper/banner2.jpg', 'swiper/banner3.jpg']
+const swiperList = ['swiper/banner3.jpg', 'swiper/banner2.jpg', 'swiper/banner1.jpg']
 
 const cultureList = [
   {
