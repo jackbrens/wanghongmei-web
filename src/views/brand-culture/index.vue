@@ -63,7 +63,7 @@ const brandList = [
     而千千万万的江城人民也在“王红梅祖传按摩中心”得到了病痛的缓解和治疗，感受到中医文化的博大精深。`
   },
   {
-    imgPath: 'logo/wanghongmei-logo.png',
+    imgPath: 'logo/rudetang-logo.png',
     title: '茹德堂',
     english: 'COMPANY STORY',
     subtitle: '不忘初心，牢记使命',
