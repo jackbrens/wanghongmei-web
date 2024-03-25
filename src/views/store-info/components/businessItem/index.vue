@@ -5,7 +5,7 @@
       <div class="content-left">
         <p class="desc">
           <span class="title">{{ itemObj?.title }}</span>
-          <span class="phone">{{ itemObj?.phone }}</span>
+          <span class="phone">电话：{{ itemObj?.phone }}</span>
         </p>
         <p class="address">{{ itemObj?.address }}</p>
       </div>
@@ -66,6 +66,7 @@ const props = defineProps({
   .content {
     display: flex;
     padding: 18px 24px 13px 18px;
+    justify-content: space-between;
     .content-left {
       color: #666;
       padding-right: 20px;
@@ -78,6 +79,9 @@ const props = defineProps({
         }
         .title {
           color: #333;
+        }
+        .phone {
+          font-size: 14px;
         }
       }
       .address {

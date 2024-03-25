@@ -49,7 +49,7 @@ const props = defineProps({
   &:hover .news-content .news-title {
     color: $bg-color;
   }
-  &:hover .news-content .btn {
+  &:hover .news-content .btn-box .btn {
     background-color: $bg-color;
     color: #ffffff;
   }

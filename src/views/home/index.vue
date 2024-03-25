@@ -143,7 +143,7 @@ const pagination = ref({
 
 const modules = ref([Navigation, Pagination])
 
-const swiperList = ['swiper/banner3.jpg', 'swiper/banner2.jpg', 'swiper/banner1.jpg']
+const swiperList = ['swiper/banner1.jpg', 'swiper/banner2.jpg', 'swiper/banner3.jpg']
 
 const cultureList = [
   {
@@ -158,7 +158,7 @@ const cultureList = [
   },
   {
     title: '茹德堂',
-    subtitle: '三代传承',
+    subtitle: '引领中医发展',
     desc: '不忘初心，牢记使命'
   }
 ]
@@ -354,6 +354,7 @@ const cultureList = [
           font-size: 14px;
           p:nth-of-type(1) {
             font-size: 20px;
+            margin-bottom: 10px;
           }
         }
       }

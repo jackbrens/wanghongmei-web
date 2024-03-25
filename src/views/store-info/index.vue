@@ -14,7 +14,7 @@
         </div>
       </div>
       <div class="mapper">
-        <businessItem v-for="(item, index) in businessList" :key="index" :item-obj="item" />
+        <businessItem v-for="(item, index) in hasList" :key="index" :item-obj="item" />
       </div>
     </div>
   </div>
@@ -22,8 +22,8 @@
 <script setup>
 import breadcrumb from '@/components/breadcrumb'
 import businessItem from './components/businessItem'
-import { businessList } from '@/views/store-info/config/index.js'
-import { ref } from 'vue'
+import { maanshanList, wuhuList } from '@/views/store-info/config/index.js'
+import { computed, ref } from 'vue'
 
 const tabList = [
   {
@@ -33,13 +33,24 @@ const tabList = [
   {
     label: '马鞍山地区',
     value: '2'
+  }
+]
+
+const businessList = [
+  {
+    value: '1',
+    childList: wuhuList
   },
   {
-    label: '阜阳地区',
-    value: '3'
+    value: '2',
+    childList: maanshanList
   }
 ]
 const currentTab = ref('1')
+
+const hasList = computed(() => {
+  return businessList.find((v) => v.value === currentTab.value)?.childList || []
+})
 
 const handleTab = (tab) => {
   currentTab.value = tab.value
