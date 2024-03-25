@@ -1,7 +1,18 @@
 <template>
   <div>
     <div class="custom-swiper-box">
-      <swiper :initial-slide="0" :navigation="true" :pagination="pagination" :modules="modules">
+      <swiper
+        :autoplay="{
+          delay: 3000,
+          disableOnInteraction: false
+        }"
+        :loop="true"
+        :speed="600"
+        :initial-slide="0"
+        :navigation="true"
+        :pagination="pagination"
+        :modules="modules"
+      >
         <swiper-slide v-for="(item, i) in swiperList" :key="i">
           <div class="swiper-item">
             <img :src="requirePath(item)" alt="" />
@@ -83,15 +94,11 @@
           <div class="line"></div>
         </div>
         <ul class="store-list wrapper animate__fadeInUp onMounted-wow">
-          <li v-for="item in 3" :key="item">
-            <img
-              style="width: 100%; height: 242px"
-              :src="requirePath('business/address.jpg')"
-              alt=""
-            />
+          <li v-for="item in storeList" :key="item">
+            <img style="width: 100%; height: 242px" :src="requirePath(item.imgPath)" alt="" />
             <div class="tit">
-              <p>上海店</p>
-              <p>地址：浙江省杭州市拱墅区1号大悦城购物中心 L5-26号 电话：0571-88399189</p>
+              <p>{{ item.title }}</p>
+              <p>{{ item.address }}</p>
             </div>
           </li>
         </ul>
@@ -108,8 +115,9 @@ import { Swiper, SwiperSlide } from 'swiper/vue'
 import 'swiper/css'
 import 'swiper/css/navigation'
 import 'swiper/css/pagination'
+import 'swiper/css/autoplay'
 // import required modules
-import { Navigation, Pagination } from 'swiper/modules'
+import { Navigation, Pagination, Autoplay } from 'swiper/modules'
 import { requirePath } from '@/utils/index.js'
 import { useRouter } from 'vue-router'
 import { ref } from 'vue'
@@ -141,9 +149,9 @@ const pagination = ref({
   }
 })
 
-const modules = ref([Navigation, Pagination])
+const modules = ref([Navigation, Pagination, Autoplay])
 
-const swiperList = ['swiper/banner1.jpg', 'swiper/banner2.jpg', 'swiper/banner3.jpg']
+const swiperList = ['swiper/banner1.jpg', 'storeInfo/store-info2.jpg', 'storeInfo/store-info10.jpg']
 
 const cultureList = [
   {
@@ -160,6 +168,26 @@ const cultureList = [
     title: '茹德堂',
     subtitle: '引领中医发展',
     desc: '不忘初心，牢记使命'
+  }
+]
+const storeList = [
+  {
+    imgPath: 'storeInfo/store-info1.jpg',
+    title: '中江桥店',
+    phone: '0553-4828968',
+    address: '地址：弋江区中江桥南中江新村23号门面'
+  },
+  {
+    imgPath: 'storeInfo/store-info2.jpg',
+    title: '中央城店',
+    phone: '0553-4828958',
+    address: '地址：弋江区中央城财富街2-116号门面'
+  },
+  {
+    imgPath: 'storeInfo/store-info3.jpg',
+    title: '华亭店',
+    phone: '0553-4828928',
+    address: '地址：镜湖区北京中路华亭阳光2.-2号门面'
   }
 ]
 </script>

@@ -3,7 +3,7 @@
     <breadcrumb />
     <div class="gary">
       <div class="wrapper animate__fadeInUp onMounted-wow">
-        <img class="image" :src="requirePath('business/address.jpg')" alt="" />
+        <img class="image" :src="requirePath('storeInfo/store-info4.jpg')" alt="" />
         <div class="right-box">
           <div class="title">王红梅按摩服务有限公司</div>
           <div class="desc">
@@ -74,7 +74,13 @@ onMounted(() => {
 const imgList = [
   'qualifications/photo1.jpg',
   'qualifications/photo2.jpg',
-  'qualifications/photo3.jpg'
+  'qualifications/photo3.jpg',
+  'qualifications/photo4.jpg',
+  'qualifications/photo5.jpg',
+  'qualifications/photo6.jpg',
+  'qualifications/photo7.jpg',
+  'qualifications/photo8.jpg',
+  'qualifications/photo9.jpg'
 ]
 
 const aboutNumList = [
@@ -203,12 +209,14 @@ const aboutNumList = [
       }
       .list {
         display: flex;
+        flex-wrap: wrap;
         @include media($breakpoint-md) {
           flex-wrap: wrap;
         }
         .list-item {
           margin-right: 30px;
-          width: 380px;
+          margin-bottom: 30px;
+          width: 370px;
           @include media($breakpoint-md) {
             margin: 0 30px 30px;
           }
