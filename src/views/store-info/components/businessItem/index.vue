@@ -68,6 +68,7 @@ const props = defineProps({
     padding: 18px 24px 13px 18px;
     justify-content: space-between;
     .content-left {
+      flex: 1;
       color: #666;
       padding-right: 20px;
       .desc {
