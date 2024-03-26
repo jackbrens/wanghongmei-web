@@ -132,5 +132,17 @@ export const maanshanList = [
     title: '马鞍山市桃源路',
     phone: '0555-2227279',
     address: '地址：马鞍山市花山区桃源路101号-2（赵一鸣零食旁）'
+  },
+  {
+    imgPath: 'storeInfo/store-info12.jpg',
+    title: '马鞍山西湖花园店',
+    phone: '0555-2227286',
+    address: '地址：西湖花园小区南门左侧100米'
+  },
+  {
+    imgPath: 'storeInfo/store-info13.jpg',
+    title: '马鞍山绿洲花园店',
+    phone: '0555-2227287',
+    address: '地址：绿洲花园1村东门对面'
   }
 ]
